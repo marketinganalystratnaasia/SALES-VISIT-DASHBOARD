@@ -23,16 +23,26 @@ st.markdown("""
 
 html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif;
-    color: #e2e8f0;
 }
 
-/* Force teks tetap terang di dark mode */
-p, span, div, label, li {
-    color: inherit;
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    html, body, [class*="css"], p, span, div, label, li {
+        color: #e2e8f0;
+    }
+    [data-testid="stAppViewContainer"] {
+        color: #e2e8f0;
+    }
 }
 
-[data-testid="stAppViewContainer"] {
-    color: #e2e8f0;
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    html, body, [class*="css"], p, span, div, label, li {
+        color: #1a202c;
+    }
+    [data-testid="stAppViewContainer"] {
+        color: #1a202c;
+    }
 }
 
 h1, h2, h3 {
@@ -231,8 +241,8 @@ def load_data():
 # ─────────────────────────────────────────────
 st.markdown("""
 <div class="anim-1" style="margin-bottom:1.5rem">
-  <h1 style="color:#e2e8f0; margin:0; font-size:2.2rem">📊 Sales Visit Dashboard</h1>
-  <p style="color:#718096; margin:0.3rem 0 0; font-size:0.9rem">
+  <h1 style="color:inherit; margin:0; font-size:2.2rem">📊 Sales Visit Dashboard</h1>
+  <p style="color:inherit; opacity:0.6; margin:0.3rem 0 0; font-size:0.9rem">
       Data kunjungan sales — Google Sheets · ALL DATA
   </p>
 </div>
@@ -451,8 +461,8 @@ with tab3:
                 sales   = str(row.get("NAMA_SALES","")).strip()
                 st.markdown(f"""
                 <div class="customer-card" style="border-left: 3px solid #3182ce;">
-                    <p style="color:#718096;font-size:0.75rem">#{i} · {tanggal} · {sales}</p>
-                    <p style="color:#e2e8f0;font-size:0.9rem">{fb_text}</p>
+                    <p style="color:inherit;opacity:0.6;font-size:0.75rem">#{i} · {tanggal} · {sales}</p>
+                    <p style="color:inherit;font-size:0.9rem">{fb_text}</p>
                 </div>
                 """, unsafe_allow_html=True)
 
