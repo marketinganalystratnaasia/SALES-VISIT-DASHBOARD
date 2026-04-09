@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import os
-from dotenv import load_dotenv
-load_dotenv()  # baca dari .env otomatis
 import plotly.express as px
 import plotly.graph_objects as go
 from anthropic import Anthropic
