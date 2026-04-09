@@ -1,8 +1,5 @@
 import streamlit as st
 import pandas as pd
-import os
-from dotenv import load_dotenv
-load_dotenv()  # baca dari .env otomatis
 import plotly.express as px
 import plotly.graph_objects as go
 from anthropic import Anthropic
@@ -174,15 +171,10 @@ def load_data():
         "https://www.googleapis.com/auth/drive",
     ]
 
-    # Streamlit Cloud: baca dari secrets. Lokal: baca dari credentials.json
-    if "gcp_service_account" in st.secrets:
-        creds = Credentials.from_service_account_info(
-            dict(st.secrets["gcp_service_account"]), scopes=scopes
-        )
-    else:
-        creds = Credentials.from_service_account_file(
-            "credentials.json", scopes=scopes
-        )
+    # Gunakan credentials.json yang ada di folder yang sama
+    creds = Credentials.from_service_account_file(
+        "credentials.json", scopes=scopes
+    )
 
     client = gspread.authorize(creds)
     sheet  = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
@@ -526,11 +518,7 @@ Jika diminta summarize feedback, kelompokkan tema-tema utama.
         with st.chat_message("assistant"):
             with st.spinner("Menganalisis…"):
                 try:
-                    api_key = os.environ.get("ANTHROPIC_API_KEY")
-                    if not api_key:
-                        st.error("⚠️ ANTHROPIC_API_KEY belum di-set. Tambahkan di file .env")
-                        st.stop()
-                    client = Anthropic(api_key=api_key)
+                    client = Anthropic()
                     resp = client.messages.create(
                         model="claude-sonnet-4-20250514",
                         max_tokens=1024,
