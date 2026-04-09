@@ -221,7 +221,7 @@ def load_data():
 # ─────────────────────────────────────────────
 st.markdown("""
 <div class="anim-1" style="margin-bottom:1.5rem">
-  <h1 style="color:#e2e8f0; margin:0; font-size:2.2rem">📊 Sales Visit Dashboard</h1>
+  <h1 style="color:#000000; margin:0; font-size:2.2rem">📊 Sales Visit Dashboard</h1>
   <p style="color:#718096; margin:0.3rem 0 0; font-size:0.9rem">
       Data kunjungan sales — Google Sheets · ALL DATA
   </p>
