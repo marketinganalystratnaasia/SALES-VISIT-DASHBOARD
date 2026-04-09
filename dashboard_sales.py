@@ -81,10 +81,14 @@ h1, h2, h3 {
     font-size: 2.2rem !important;
 }
 
+[data-testid="metric-container"] * {
+    color: #e2e8f0 !important;
+}
+
 /* Section headers */
 .section-title {
     font-family: 'DM Serif Display', serif;
-    color: #e2e8f0;
+    color: #90cdf4 !important;
     font-size: 1.4rem;
     padding: 0.4rem 0 0.2rem;
     border-bottom: 2px solid #3182ce;
@@ -102,16 +106,20 @@ h1, h2, h3 {
 }
 
 .customer-card h4 {
-    color: #90cdf4;
+    color: #90cdf4 !important;
     font-family: 'DM Serif Display', serif;
     margin: 0 0 0.5rem 0;
     font-size: 1.1rem;
 }
 
 .customer-card p {
-    color: #a0aec0;
+    color: #cbd5e0 !important;
     margin: 0.2rem 0;
     font-size: 0.85rem;
+}
+
+.customer-card * {
+    color: #e2e8f0 !important;
 }
 
 .visit-badge {
@@ -397,7 +405,7 @@ with tab2:
     <div class="customer-card anim-1">
         <h4>🏢 {sel_cust2}</h4>
         <span class="visit-badge">{total_visits} kunjungan</span>
-        <p>👔 Sales: <strong style="color:#e2e8f0">{', '.join(sales_list)}</strong></p>
+        <p>👔 Sales: <strong style="color:#e2e8f0 !important">{', '.join(sales_list)}</strong></p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -462,7 +470,7 @@ with tab3:
                 st.markdown(f"""
                 <div class="customer-card" style="border-left: 3px solid #3182ce;">
                     <p style="color:inherit;opacity:0.6;font-size:0.75rem">#{i} · {tanggal} · {sales}</p>
-                    <p style="color:inherit;font-size:0.9rem">{fb_text}</p>
+                    <p style="color:#e2e8f0 !important;font-size:0.9rem">{fb_text}</p>
                 </div>
                 """, unsafe_allow_html=True)
 
