@@ -25,24 +25,31 @@ html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif;
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    html, body, [class*="css"], p, span, div, label, li {
-        color: #e2e8f0;
-    }
-    [data-testid="stAppViewContainer"] {
-        color: #e2e8f0;
-    }
+/* Teks di dalam box gelap selalu putih */
+.customer-card, .customer-card * {
+    color: #e2e8f0 !important;
 }
 
-/* Light mode */
-@media (prefers-color-scheme: light) {
-    html, body, [class*="css"], p, span, div, label, li {
-        color: #1a202c;
-    }
-    [data-testid="stAppViewContainer"] {
-        color: #1a202c;
-    }
+.customer-card h4 {
+    color: #90cdf4 !important;
+}
+
+.customer-card p {
+    color: #cbd5e0 !important;
+}
+
+.visit-badge {
+    color: #bee3f8 !important;
+}
+
+/* Metric cards selalu putih */
+[data-testid="metric-container"],
+[data-testid="metric-container"] * {
+    color: #e2e8f0 !important;
+}
+
+[data-testid="metric-container"] label {
+    color: #90cdf4 !important;
 }
 
 h1, h2, h3 {
@@ -250,7 +257,7 @@ def load_data():
 st.markdown("""
 <div class="anim-1" style="margin-bottom:1.5rem">
   <h1 style="color:inherit; margin:0; font-size:2.2rem">📊 Sales Visit Dashboard</h1>
-  <p style="color:inherit; opacity:0.6; margin:0.3rem 0 0; font-size:0.9rem">
+  <p style="color:#a0aec0 !important; margin:0.3rem 0 0; font-size:0.9rem">
       Data kunjungan sales — Google Sheets · ALL DATA
   </p>
 </div>
